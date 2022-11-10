@@ -1,0 +1,42 @@
+body {
+    background-size: cover;
+    /* background-image: url(.//Image/Background.jpeg); */
+    background-repeat: no-repeat;
+}
+
+.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#buttonLog {
+    margin-right: 50px;
+}
+
+#buttonReset {
+    margin-left: 50px;
+}
+
+.main {
+    display: flex;
+    text-align: center;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 500px;
+}
+  
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+}
