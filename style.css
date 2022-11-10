@@ -11,3 +11,16 @@ body {
     align-items: center;
     height: 100vh;
 }
+
+#buttonLog {
+    margin-right: 50px;
+}
+
+#buttonReset {
+    margin-left: 50px;
+}
+
+.main {
+    display: flex;
+    text-align: center;
+}
