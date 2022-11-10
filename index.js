@@ -14,13 +14,10 @@ let randomFact = facts[randomIdx];
 
 document.getElementById('submitName').addEventListener("click", function(){ 
     let user = document.getElementById('name').value;
-    (if!user) {
-        alert "Please input your name"
-    } else {
-        document.getElementById('landingPage').style.display = 'none';
-        document.getElementById('secondPage').removeAttribute("style");
-        document.getElementById('greeting').innerText = `Hello, ${user}`;
-    }
+    document.getElementById('landingPage').style.display = 'none';
+    document.getElementById('secondPage').removeAttribute("style");
+    document.getElementById('greeting').innerText = `Hello, ${user}`;
+    
 })
 
 document.getElementById('submitInitial').addEventListener("click", function(){ 
@@ -29,17 +26,18 @@ document.getElementById('submitInitial').addEventListener("click", function(){
         alert("Please input a valid number")
     } else {
         counter = initial;
-        document.getElementById('secondPage').style.display = 'none';
-        document.getElementById('thirdPage').removeAttribute("style");
         //opacity gelas
         if (counter >= 8){
             document.getElementById('secondPage').style.display = 'none';
             document.getElementById('fourthPage').removeAttribute("style");
-        } 
-        else if (counter > 4) {
-            document.querySelectorAll('#water1 img').style.opacity = 1;
-            for (i = 0; i < counter-4; i++) {
-                document.querySelectorAll('#water2 img[i]').style.opacity = 1;
+        } else {
+            document.getElementById('secondPage').style.display = 'none';
+            document.getElementById('thirdPage').removeAttribute("style");
+            if (counter > 4) {
+                document.getElementById('water1').style.opacity = 1;
+                for (i = 0; i < counter-4; i++) {
+                    document.getElementById('water2[i]').style.opacity = 1;
+                }
             }
         }
     }
@@ -49,6 +47,10 @@ let enoughDrink = false;
 
 document.getElementById('btnLog').addEventListener("click", function(){
     counter++;
+    if (counter === 8) {
+        document.getElementById('thirdPage').style.display = 'none';
+        document.getElementById('fourthPage').removeAttribute("style");
+    }
     //opacity gelas
     const d = new Date();
     let hour = d.getHours();
@@ -56,17 +58,12 @@ document.getElementById('btnLog').addEventListener("click", function(){
     let time = `${hour}:${minute}`;
     let list = document.getElementById('list');
     let newMessage = document.createElement('li');
-    newMessage.innerText = `${counter} ----- ${time}`;
+    newMessage.innerText = `You had your glass of water No. ${counter} at ${time} today`;
     list.appendChild(newMessage);
-
-
     
     document.querySelectorAll('#water1 img[counter-1]').style.opacity = 1;
     
-    if (counter === 8) {
-        document.getElementById('thirdPage').style.display = 'none';
-        document.getElementById('fourthPage').removeAttribute("style");
-    }
+
     let finalMessage1 = "Great job! You reached your daily water intake goal. Keep it up :)";
     document.getElementById('finalMessage').innerText = finalMessage1;
     document.getElementById('randomFact').innerText = `Did you know? ${randomFact}`;
@@ -83,6 +80,7 @@ document.getElementById('btnReset').addEventListener("click", function(){
 document.getElementById('btnStartOver').addEventListener("click", function(){
     document.getElementById('fourthPage').style.display = 'none';
     document.getElementById('secondPage').removeAttribute("style");
+    document.getElementsById('list').innerHTML = '';
 })
 
 
