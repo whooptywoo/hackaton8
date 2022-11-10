@@ -1,0 +1,13 @@
+body {
+    background-size: cover;
+    background-image: url(.//Image/Background.jpeg);
+    background-repeat: no-repeat;
+}
+
+.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
