@@ -37,6 +37,9 @@ document.getElementById('submitInitial').addEventListener("click", function(){
         if (counter >= 8){
             document.getElementById('secondPage').style.display = 'none';
             document.getElementById('fourthPage').removeAttribute("style");
+            let finalMessage1 = "Great job! You reached your daily water intake goal. Keep it up :)";
+            document.getElementById('finalMessage').innerText = finalMessage1;
+            document.getElementById('randomFact').innerText = `Did you know? ${randomFact}`;
         } else {
             document.getElementById('secondPage').style.display = 'none';
             document.getElementById('thirdPage').removeAttribute("style");
@@ -59,13 +62,15 @@ document.getElementById('btnLog').addEventListener("click", function(){
     if (counter === 8) {
         document.getElementById('thirdPage').style.display = 'none';
         document.getElementById('fourthPage').removeAttribute("style");
+        let finalMessage1 = "Great job! You reached your daily water intake goal. Keep it up :)";
+        document.getElementById('finalMessage').innerText = finalMessage1;
+        document.getElementById('randomFact').innerText = `Did you know? ${randomFact}`;
     }
     //opacity gelas
     const d = new Date();
     let hour = d.getHours();
     let minute = d.getMinutes();
-    let second = d.getSeconds();
-    let time = `${hour}:${minute}:${second}`;
+    let time = `${hour}:${minute}`;
     let list = document.getElementById('list');
     let newMessage = document.createElement('li');
     newMessage.innerText = `You had your glass of water No. ${counter} at ${time} today`;
@@ -90,9 +95,9 @@ document.getElementById('btnReset').addEventListener("click", function(){
     }
     else {
         let finalMessage2 = `Ouch, you were short at least ${8-counter} glasses of water. Let's do better next time!`;
+        document.getElementById('finalMessage').innerText = finalMessage2;
+        document.getElementById('randomFact').innerText = `Did you know? ${randomFact}`;
     }
-    document.getElementById('finalMessage').innerText = finalMessage2;
-    document.getElementById('randomFact').innerText = `Did you know? ${randomFact}`;
 })
 
 document.getElementById('continueBtn').addEventListener("click", function(){
