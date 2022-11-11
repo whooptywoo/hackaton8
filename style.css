@@ -77,6 +77,10 @@ padding: 8px !important;
 margin: 5px 0;
 }
 
+#list li:not(:last-child) {
+    border-bottom: #0096C7 solid 1px
+}
+
 #water {
     display: flex;
     justify-content: center;
@@ -119,4 +123,8 @@ margin: 5px 0;
 
 .progress-bar:last-child {
     border-radius: 0 5px 5px 0;
+}
+
+#btnStartOver {
+    width: 125px;
 }
